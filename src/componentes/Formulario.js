@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Buscador from "./Buscador";
 import EligeLinea from "./EligeLinea";
 
@@ -13,4 +14,7 @@ const Formulario = (props) => {
   );
 };
 
+Formulario.propTypes = {
+  ocultarFraseLineas: PropTypes.bool.isRequired
+};
 export default Formulario;

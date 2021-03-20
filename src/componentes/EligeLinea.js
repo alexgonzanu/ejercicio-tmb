@@ -14,7 +14,10 @@ const EligeLinea = () => {
       <select id="tiempo-linea" onChange={elegirLinea}>
         <option value="">Elige línea</option>
         {
-          lineas && lineas.data.ibus.map(linea => <option value={linea.line} key={linea.routeId}>{linea.line}</option>)
+          lineas && lineas.data.ibus.map(linea => {
+            return <option key={linea.routeId} value={`${linea.line}:${linea["text-ca"]}`} >{linea.line}</option>;
+          })
+
         }
       </select>
     </form>

@@ -27,7 +27,7 @@ function App() {
 
   return (
     <BuscarParadaContext.Provider value={{ numeroParada, parada, setNumeroParada, setOcultarFraseLineas, setOcultarFraseTiempo }}>
-      <LineasParadaContext.Provider value={{ lineas, numeroLinea, setNumeroLinea, setOcultarFraseTiempo }}>
+      <LineasParadaContext.Provider value={{ parada, lineas, numeroLinea, setNumeroLinea, setOcultarFraseTiempo }}>
         <div className="contenedor">
           <InfoParada ocultarFraseTiempo={ocultarFraseTiempo} />
           <Formalurio ocultarFraseLineas={ocultarFraseLineas} />
