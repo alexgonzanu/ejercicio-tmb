@@ -7,7 +7,7 @@ import useFetch from "./hooks/useFetch";
 function App() {
   const { datos: parada, pedirDatos: pedirParada } = useFetch();
   const { datos: lineas, pedirDatos: pedirLineas } = useFetch();
-  const [numeroParada, setNumeroParada] = useState();
+  const [numeroParada, setNumeroParada] = useState("");
   const [ocultarFraseLineas, setOcultarFraseLineas] = useState(true);
   const [ocultarFraseTiempo, setOcultarFraseTiempo] = useState(true);
 
