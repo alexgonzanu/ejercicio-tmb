@@ -16,7 +16,8 @@ const InfoLinea = (props) => {
                 numeroLineaCogida.features.map(parada => <li
                   key={parada.properties.CODI_FAMILIA}
                   className="parada">
-                  {`Parada nº ${parada.properties.CODI_PARADA}: ${parada.properties.NOM_PARADA}`}(<a href="#">ver mapa</a>)</li>)
+                  {`Parada nº ${parada.properties.CODI_PARADA}: ${parada.properties.NOM_PARADA}`}
+                  (<a href={`http://maps.google.com/maps?z=19&t=m&q=loc:${parada.geometry.coordinates[1]}+${parada.geometry.coordinates[0]}`}>ver mapa</a>)</li>)
               }
             </ul>
           </section>
