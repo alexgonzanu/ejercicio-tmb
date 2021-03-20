@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import Formalurio from "./componentes/Formulario";
 import InfoParada from "./componentes/InfoParada";
 import BuscarParadaContext from "./contexts/BuscarParada";
+import LineasParadaContext from "./contexts/LineasParadaContext";
 import useFetch from "./hooks/useFetch";
 
 function App() {
   const { datos: parada, pedirDatos: pedirParada } = useFetch();
   const { datos: lineas, pedirDatos: pedirLineas } = useFetch();
   const [numeroParada, setNumeroParada] = useState("");
+  const [numeroLinea, setNumeroLinea] = useState("");
   const [ocultarFraseLineas, setOcultarFraseLineas] = useState(true);
   const [ocultarFraseTiempo, setOcultarFraseTiempo] = useState(true);
 
@@ -24,11 +26,12 @@ function App() {
   }, [numeroParada, parada, pedirLineas]);
 
   return (
-    <BuscarParadaContext.Provider value={{ numeroParada, parada, setNumeroParada, setOcultarFraseLineas }}>
-      <div className="contenedor">
-        <InfoParada ocultarFraseTiempo={ocultarFraseTiempo} />
-        <Formalurio ocultarFraseLineas={ocultarFraseLineas} />
-        {/*<header className="cabecera">
+    <BuscarParadaContext.Provider value={{ numeroParada, parada, setNumeroParada, setOcultarFraseLineas, setOcultarFraseTiempo }}>
+      <LineasParadaContext.Provider value={{ lineas, numeroLinea, setNumeroLinea, setOcultarFraseTiempo }}>
+        <div className="contenedor">
+          <InfoParada ocultarFraseTiempo={ocultarFraseTiempo} />
+          <Formalurio ocultarFraseLineas={ocultarFraseLineas} />
+          {/*<header className="cabecera">
         <h2>Bus 109 - Hospital Clínic / Polígon Zona Franca</h2>
         <h3>Polígon Zona Franca -> Hospital Clínic</h3>
         <a href="#">Volver a la portada</a>
@@ -43,7 +46,8 @@ function App() {
           <li className="parada">Parada nº 1643: Mercabarna - Mercat del Peix (<a href="#">ver mapa</a>)</li>
         </ul>
       </section>*/}
-      </div>
+        </div>
+      </LineasParadaContext.Provider>
     </BuscarParadaContext.Provider>
   );
 }

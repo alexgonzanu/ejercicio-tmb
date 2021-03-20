@@ -3,7 +3,7 @@ import BuscarParadaContext from "../contexts/BuscarParada";
 
 const Buscador = () => {
   const paradaBus = useContext(BuscarParadaContext);
-  const { numeroParada, parada, setNumeroParada, setOcultarFraseLineas } = paradaBus;
+  const { numeroParada, parada, setNumeroParada, setOcultarFraseLineas, setOcultarFraseTiempo } = paradaBus;
   const [numeroParadaAuxiliar, setNumeroParadaAuxiliar] = useState(0);
 
   useEffect(() => {
@@ -12,9 +12,10 @@ const Buscador = () => {
         setOcultarFraseLineas(false);
       } else {
         setOcultarFraseLineas(true);
+        setOcultarFraseTiempo(true);
       }
     }
-  }, [parada, setOcultarFraseLineas]);
+  }, [parada, setOcultarFraseLineas, setOcultarFraseTiempo]);
   const cambiarInput = e => {
     setNumeroParadaAuxiliar(e.target.value);
   };
