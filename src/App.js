@@ -45,7 +45,7 @@ function App() {
               <Route path="/parada" exact>
                 <Parada ocultarFraseLineas={ocultarFraseLineas} ocultarFraseTiempo={ocultarFraseTiempo} />
               </Route>
-              <Route path="/linea" exact>
+              <Route path={`/linea/${numLineaCogida}`} exact>
                 <InfoLinea numeroLineaCogida={numeroLineaCogida} />
               </Route>
               <Route path="/" exact>

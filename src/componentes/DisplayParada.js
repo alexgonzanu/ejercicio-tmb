@@ -39,7 +39,7 @@ const DisplayParada = () => {
       {
         lineas && lineas.data.ibus.map(bus =>
           <div key={bus.routeId} className="bus" style={{ top: `${topLineasParada}px` }}>
-            <NavLink to="/linea"><span className="linea" onClick={() => cogerInfoLineaEscogida(bus.line)}>{bus.line}</span></NavLink>
+            <NavLink to={`/linea/${bus.line}`}><span className="linea" onClick={() => cogerInfoLineaEscogida(bus.line)}>{bus.line}</span></NavLink>
             <span className="destino">{bus.destination}</span>
             <span className="tiempo">{bus["text-ca"]}</span>
           </div>)
